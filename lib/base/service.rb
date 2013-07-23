@@ -21,7 +21,7 @@ module VCAP::Services
       @default_plan = attrs['default_plan']
       @supported_versions = attrs['supported_versions']
       @version_aliases = attrs['version_aliases']
-      @extra = attrs.fetch('extra')
+      @extra = attrs.fetch('extra', "nothing_else")
       @info_url = attrs['info_url']
       @bindable = attrs.fetch('bindable', true)
       @guid = attrs['guid']
@@ -74,8 +74,7 @@ module VCAP::Services
         "active" => active,
         "acls" => acls,
         "timeout" => timeout,
-        "extra" => extra,
-        "bindable" => bindable
+        "extra" => extra
       }
     end
   end
